@@ -3,305 +3,657 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بين السطور | Between the Lines - مدونة مراجعات الكتب</title>
+    <title>مِداد | مراجعات كتب بلمسة أدبية دافئة</title>
+    <!-- Tailwind CSS للتحكم بالهيكل المرن والسريع -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- خطوط عربية فاخرة -->
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        paper: '#FDFBF7',     /* لون الورق العتيق الدافئ */
+                        ink: '#1E293B',      /* لون الحبر الداكن */
+                        gold: '#B38E50',     /* الذهب الأدبي الفاخر */
+                        cardBg: '#F5F1E9',   /* كروت مائلة للبيج الفاخر */
+                        cardBorder: '#E6DEC9' /* حدود الأوراق الهادئة */
+                    },
+                    fontFamily: {
+                        serif: ['Amiri', 'serif'],
+                        sans: ['Cairo', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap');
-
-        :root {
-            --bg-color: #fcfbfa; /* لون خلفية ورقي دافئ مريح للقراءة */
-            --text-color: #2c3e50;
-            --primary-color: #1a252f; /* لون غامق كلاسيكي */
-            --accent-color: #d35400; /* لون الحبر المرجاني للمسات الجمالية */
-            --card-bg: #ffffff;
-        }
-
         body {
+            background-color: #F8F5F0;
             font-family: 'Cairo', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            margin: 0;
-            padding: 0;
-            line-height: 1.8;
+            color: #1E293B;
         }
-
-        header {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 20px 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        .vintage-shadow {
+            box-shadow: 0 4px 20px rgba(30, 41, 59, 0.03);
         }
-
-        .nav-container {
-            width: 85%;
-            max-width: 1100px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .elegant-border {
+            border-color: #E6DEC9;
         }
-
-        .logo {
-            font-size: 22px;
-            font-weight: 700;
-            color: #ffffff;
-            text-decoration: none;
-            letter-spacing: 0.5px;
+        ::-webkit-scrollbar {
+            width: 8px;
         }
-
-        .logo span {
-            color: var(--accent-color);
-            font-size: 14px;
-            display: block;
-            font-weight: 300;
-            margin-top: -5px;
+        ::-webkit-scrollbar-track {
+            background: #FDFBF7;
         }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin-right: 25px;
-            font-weight: 400;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: var(--accent-color);
-        }
-
-        .hero-section {
-            background: linear-gradient(135deg, #1a252f, #2c3e50);
-            color: white;
-            text-align: center;
-            padding: 100px 20px;
-        }
-
-        .hero-content {
-            max-width: 750px;
-            margin: 0 auto;
-        }
-
-        .hero-content h1 {
-            font-size: 40px;
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-
-        .hero-content p {
-            font-size: 18px;
-            color: #bdc3c7;
-            font-weight: 300;
-        }
-
-        .main-container {
-            width: 85%;
-            max-width: 1100px;
-            margin: 50px auto;
-        }
-
-        .section-title {
-            font-size: 26px;
-            color: var(--primary-color);
-            margin-bottom: 40px;
-            border-bottom: 3px solid var(--accent-color);
-            display: inline-block;
-            padding-bottom: 5px;
-        }
-
-        .articles-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 35px;
-        }
-
-        .article-card {
-            background-color: var(--card-bg);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.04);
-            transition: transform 0.3s, box-shadow 0.3s;
-            display: flex;
-            flex-direction: column;
-            border: 1px solid #f1f1f1;
-        }
-
-        .article-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.09);
-        }
-
-        .article-meta {
-            padding: 25px 25px 0 25px;
-            font-size: 13px;
-            color: #7f8c8d;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .rating {
-            color: #f1c40f;
-        }
-
-        .article-content {
-            padding: 10px 25px 25px 25px;
-            flex-grow: 1;
-        }
-
-        .article-title {
-            font-size: 22px;
-            color: var(--primary-color);
-            margin: 0 0 12px 0;
-            font-weight: 700;
-        }
-
-        .article-excerpt {
-            font-size: 15px;
-            color: #555;
-            margin-bottom: 25px;
-            text-align: justify;
-        }
-
-        .read-more {
-            color: var(--accent-color);
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 15px;
-        }
-
-        .read-more:hover {
-            text-decoration: underline;
-        }
-
-        /* قسم دعم الكاتب */
-        .support-box {
-            background-color: #f3f4f6;
-            border-radius: 12px;
-            padding: 30px;
-            text-align: center;
-            margin-top: 60px;
-            border: 1px dashed #cbd5e1;
-        }
-
-        .support-btn {
-            background-color: var(--accent-color);
-            color: white;
-            text-decoration: none;
-            padding: 10px 25px;
-            border-radius: 25px;
-            font-weight: 700;
-            display: inline-block;
-            margin-top: 15px;
-            transition: background 0.3s;
-        }
-
-        .support-btn:hover {
-            background-color: #b34700;
-        }
-
-        footer {
-            background-color: var(--primary-color);
-            color: #bdc3c7;
-            text-align: center;
-            padding: 35px 0;
-            margin-top: 80px;
-            font-size: 14px;
-        }
-
-        @media (max-width: 768px) {
-            .nav-container {
-                flex-direction: column;
-                gap: 15px;
-                text-align: center;
-            }
-            nav a {
-                margin: 0 10px;
-            }
-            .hero-content h1 {
-                font-size: 30px;
-            }
+        ::-webkit-scrollbar-thumb {
+            background: #B38E50;
+            border-radius: 4px;
         }
     </style>
 </head>
-<body>
+<body class="min-h-screen flex flex-col justify-between">
 
-    <header>
-        <div class="nav-container">
-            <a href="#" class="logo">بين السطور <span>Between the Lines</span></a>
-            <nav>
-                <a href="#">الرئيسية</a>
-                <a href="#">مراجعات الكتب</a>
-                <a href="#">قائمتي المفضلة</a>
-                <a href="#">عن المدونة</a>
+    <!-- 1. شريط التنقل العلوي الفاخر (Header) -->
+    <header class="bg-paper border-b elegant-border sticky top-0 z-40 vintage-shadow">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <span class="font-serif text-3xl font-bold text-ink tracking-tight border-l-2 pl-3 border-gold">مِداد</span>
+                <span class="text-xs text-gold font-sans hidden md:inline-block">بين دفتي كتاب.. حياة أخرى</span>
+            </div>
+            
+            <nav class="flex items-center gap-6 text-sm font-semibold text-ink">
+                <a href="#reviews" class="hover:text-gold transition">المراجعات</a>
+                <a href="#about" class="hover:text-gold transition">صاحب المدونة</a>
+                <a href="#writer-panel" class="hover:text-gold transition flex items-center gap-1 text-gold"><i class="fa-solid fa-feather"></i> لوحة الكاتب</a>
+                <a href="#guide" class="bg-ink text-paper px-4 py-2 rounded-lg hover:bg-gold hover:text-ink transition duration-300 text-xs font-bold shadow-sm">دليل النشر المجاني</a>
             </nav>
         </div>
     </header>
 
-    <section class="hero-section">
-        <div class="hero-content">
-            <h1>مرحباً بك في "بين السطور"</h1>
-            <p>هنا لا نلخص الكتب فحسب، بل نغوص عميقاً في الأفكار، نناقش الرؤى، ونستخرج المعاني الإبداعية المخبأة خلف الكلمات. رحلتك المعرفية تبدأ من هنا.</p>
+    <!-- 2. الجزء التعريفي البصري (Hero Section) -->
+    <section class="bg-paper py-16 border-b elegant-border relative overflow-hidden">
+        <div class="absolute inset-0 opacity-5 pointer-events-none">
+            <div class="absolute top-10 right-10 w-96 h-96 bg-gold rounded-full filter blur-3xl"></div>
+            <div class="absolute bottom-10 left-10 w-96 h-96 bg-ink rounded-full filter blur-3xl"></div>
+        </div>
+        
+        <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+            <span class="text-gold font-serif text-xl italic block mb-3">أهلاً بك في فضاء مداد</span>
+            <h1 class="font-serif text-5xl md:text-6xl font-bold text-ink mb-6 leading-tight">حيث تولد الكتب من جديد في هيئة أفكار</h1>
+            <p class="text-ink opacity-80 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed font-light">
+                مدونة تفاعلية تجمع شغف القراءة وعمق التحليل الأدبي لتلخيص ممتع ونقد موضوعي دافئ لأبرز روائع الأدب والفكر الإنساني.
+            </p>
+            <div class="w-24 h-1 bg-gold mx-auto mt-8"></div>
         </div>
     </section>
 
-    <main class="main-container">
-        <h2 class="section-title">آخر مراجعات الكتب</h2>
+    <!-- 3. المحتوى الرئيسي: المراجعات وتحدي القراءة -->
+    <main class="max-w-6xl mx-auto px-6 py-12 flex flex-col lg:flex-row gap-8 flex-grow">
         
-        <div class="articles-grid">
+        <!-- القسم الأيمن: قائمة المراجعات والبحث -->
+        <section class="w-full lg:w-3/4" id="reviews">
             
-            <!-- مراجعة كتاب 1 -->
-            <article class="article-card">
-                <div class="article-meta">
-                    <span>9 يونيو 2026</span>
-                    <span class="rating">★★★★★</span>
+            <!-- شريط البحث والتصفية السريعة -->
+            <div class="bg-paper rounded-xl p-5 border elegant-border vintage-shadow mb-8 flex flex-col md:flex-row gap-4 justify-between items-center">
+                <div class="relative w-full md:w-72">
+                    <span class="absolute inset-y-0 right-3 flex items-center text-gold">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </span>
+                    <input type="text" id="search-input" placeholder="ابحث عن كتاب، كاتب أو فكرة..." class="w-full pl-4 pr-10 py-2.5 bg-[#FAF8F4] border elegant-border rounded-lg text-sm text-ink focus:outline-none focus:border-gold transition">
                 </div>
-                <div class="article-content">
-                    <h3 class="article-title">مراجعة كتاب: مقدمة ابن خلدون</h3>
-                    <p class="article-excerpt">قراءة متأنية في عبقرية ابن خلدون التأسيسية لعلم الاجتماع. كيف استطاع قراءة التاريخ بنظرة علمية تفكك صعود الدول وسقوطها، وما الذي يمكن أن نتعلمه من "العصبية" في عصرنا الرقمي الحالي...</p>
-                    <a href="#" class="read-more">اقرأ القراءة الكاملة ←</a>
+                
+                <!-- أزرار التصنيفات التفاعلية -->
+                <div class="flex flex-wrap gap-2 w-full md:w-auto justify-end">
+                    <button onclick="filterCategory('الكل')" id="tag-الكل" class="px-4 py-2 text-xs font-bold rounded-lg transition-all border border-gold bg-gold text-paper">الكل</button>
+                    <button onclick="filterCategory('روايات')" id="tag-روايات" class="px-4 py-2 text-xs font-bold rounded-lg transition-all border elegant-border bg-paper text-ink hover:border-gold hover:text-gold">روايات</button>
+                    <button onclick="filterCategory('تطوير ذات')" id="tag-تطوير ذات" class="px-4 py-2 text-xs font-bold rounded-lg transition-all border elegant-border bg-paper text-ink hover:border-gold hover:text-gold">تطوير ذات</button>
+                    <button onclick="filterCategory('فلسفة وتاريخ')" id="tag-فلسفة وتاريخ" class="px-4 py-2 text-xs font-bold rounded-lg transition-all border elegant-border bg-paper text-ink hover:border-gold hover:text-gold">فلسفة وتاريخ</button>
+                    <button onclick="filterCategory('سيرة ذاتية')" id="tag-سيرة ذاتية" class="px-4 py-2 text-xs font-bold rounded-lg transition-all border elegant-border bg-paper text-ink hover:border-gold hover:text-gold">سيرة ذاتية</button>
                 </div>
-            </article>
+            </div>
 
-            <!-- مراجعة كتاب 2 -->
-            <article class="article-card">
-                <div class="article-meta">
-                    <span>1 يونيو 2026</span>
-                    <span class="rating">★★★★☆</span>
-                </div>
-                <div class="article-content">
-                    <h3 class="article-title">قوة العادات: لماذا نفعل ما نفعله؟</h3>
-                    <p class="article-excerpt">تحليل لكتاب تشارلز دويج الشهير حول حلقة العادة (الإشارة، الروتين، والمكافأة). في هذه المراجعة نركز بين السطور على كيفية إعادة هندسة عاداتنا اليومية لزيادة الإنتاجية والإبداع في الكتابة...</p>
-                    <a href="#" class="read-more">اقرأ القراءة الكاملة ←</a>
-                </div>
-            </article>
+            <!-- شبكة كروت الكتب -->
+            <div id="reviews-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- سيتم حقن الكروت تفاعلياً بواسطة JavaScript -->
+            </div>
+        </section>
 
-            <!-- مراجعة كتاب 3 -->
-            <article class="article-card">
-                <div class="article-meta">
-                    <span>18 مايو 2026</span>
-                    <span class="rating">★★★★★</span>
+        <!-- القسم الأيسر: تحدي القراءة، النشرة، والتعريف بالكاتب -->
+        <aside class="w-full lg:w-1/4 flex flex-col gap-6">
+            
+            <!-- كارت التعريف بالمدون -->
+            <div class="bg-paper border elegant-border rounded-xl p-6 vintage-shadow text-center" id="about">
+                <div class="w-20 h-20 bg-cardBg border-2 border-gold rounded-full mx-auto flex items-center justify-center mb-4">
+                    <i class="fa-solid fa-feather-pointed text-3xl text-gold"></i>
                 </div>
-                <div class="article-content">
-                    <h3 class="article-title">رواية 1984: نبوءة الماضي والحاضر</h3>
-                    <p class="article-excerpt">هل كان جورج أورويل يكتب عن مستقبله أم عن حاضرنا؟ نغوص في أعماق الرواية الشهيرة لنحلل مفاهيم السيطرة الفكرية ولغة "النيوسبيك"، وكيف تؤثر التكنولوجيا الحالية على خصوصيتنا وحريتنا الفردية...</p>
-                    <a href="#" class="read-more">اقرأ القراءة الكاملة ←</a>
+                <h3 class="font-serif text-xl font-bold mb-1">قارئ مداد</h3>
+                <p class="text-xs text-gold mb-3">مهتم بالقراءة والتقنية</p>
+                <p class="text-sm text-ink opacity-80 leading-relaxed mb-4">
+                    أشارك هنا تأملاتي الصادقة في مراجعة الكتب التي غيرت فلسفتي ونظرتي للحياة، بمزيج رائع من بساطة الحرف وقوة البرمجة.
+                </p>
+                <div class="flex justify-center gap-3 text-ink opacity-70">
+                    <a href="#" class="hover:text-gold transition"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#" class="hover:text-gold transition"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" class="hover:text-gold transition"><i class="fa-solid fa-envelope"></i></a>
                 </div>
-            </article>
+            </div>
 
-        </div>
+            <!-- ويدجت تحدي القراءة التفاعلي لعام 2026 -->
+            <div class="bg-paper border elegant-border rounded-xl p-6 vintage-shadow">
+                <div class="flex items-center gap-2 mb-4">
+                    <i class="fa-solid fa-bookmark text-gold"></i>
+                    <h3 class="font-bold text-sm tracking-wide text-ink">تحدي القراءة لعام 2026</h3>
+                </div>
+                <div class="mb-2 flex justify-between text-xs font-semibold">
+                    <span class="text-ink">تمت قراءة 9 كتب</span>
+                    <span class="text-gold">الهدف: 24 كتاباً</span>
+                </div>
+                <div class="w-full bg-cardBg rounded-full h-3 mb-4 overflow-hidden border elegant-border">
+                    <div class="bg-gradient-to-r from-gold to-ink h-full rounded-full transition-all duration-1000" style="width: 37.5%"></div>
+                </div>
+                <p class="text-xs text-ink opacity-70 leading-relaxed">
+                    مستمرون في تقليب الصفحات واستخراج الدروس؛ كل صفحة نقرؤها تصنع فارقاً في وعينا اليومي.
+                </p>
+            </div>
 
-        <!-- صندوق دعم صناع المحتوى -->
-        <div class="support-box">
-            <h3>هل تستمتع بالقراءات والتحليلات؟ ☕</h3>
-            <p>يمكنك المساهمة في استمرار المدونة ونشر المزيد من مراجعات الكتب العميقة من خلال دعم الكاتب.</p>
-            <a href="#" class="support-btn">اشترِ لي كوباً من القهوة</a>
-        </div>
+            <!-- نشرة بريدية تفاعلية هادئة -->
+            <div class="bg-cardBg border elegant-border rounded-xl p-6 vintage-shadow">
+                <h3 class="font-serif text-lg font-bold mb-2">أنيس الحرف</h3>
+                <p class="text-xs text-ink opacity-80 leading-relaxed mb-4">
+                    اشترك لتصلك تأملاتي الأسبوعية والمراجعات العميقة لأحدث الكتب مباشرة في بريدك الإلكتروني.
+                </p>
+                <form onsubmit="event.preventDefault(); showToast('شكرًا لاهتمامك بمداد! تم التسجيل بنجاح في القائمة البريدية التجريبية.', 'success');" class="flex flex-col gap-2">
+                    <input type="email" placeholder="بريدك الإلكتروني" required class="w-full px-3 py-2 bg-paper border elegant-border rounded-lg text-xs text-ink focus:outline-none focus:border-gold transition">
+                    <button type="submit" class="w-full py-2 bg-ink text-paper rounded-lg text-xs font-bold hover:bg-gold hover:text-ink transition duration-300">كن معي على تواصل</button>
+                </form>
+            </div>
+        </aside>
     </main>
 
-    <footer>
-        <p>جميع الحقوق محفوظة © مدونة بين السطور 2026 | شُيدت بشغف على GitHub Pages</p>
+    <!-- 4. لوحة كاتب مِداد (محرر المراجعات ومولد الـ Markdown الذكي) -->
+    <section class="bg-paper border-t elegant-border py-12 vintage-shadow" id="writer-panel">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 rounded-full bg-cardBg flex items-center justify-center text-gold border elegant-border">
+                    <i class="fa-solid fa-feather"></i>
+                </div>
+                <div>
+                    <h2 class="font-serif text-2xl font-bold text-ink">مُحرر كاتب مِداد</h2>
+                    <p class="text-xs text-gold">اكتب مراجعتك الجديدة، عاينها فوراً، واحصل على كود الـ Markdown لنشره!</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- نموذج كتابة المراجعة -->
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-bold mb-1.5 text-ink">عنوان الكتاب</label>
+                        <input type="text" id="form-title" placeholder="مثال: مقدمة ابن خلدون" class="w-full px-3 py-2 bg-[#FAF8F4] border elegant-border rounded-lg text-sm text-ink focus:outline-none focus:border-gold transition">
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold mb-1.5 text-ink">المؤلف</label>
+                            <input type="text" id="form-author" placeholder="مثال: ابن خلدون" class="w-full px-3 py-2 bg-[#FAF8F4] border elegant-border rounded-lg text-sm text-ink focus:outline-none focus:border-gold transition">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold mb-1.5 text-ink">التصنيف</label>
+                            <select id="form-category" class="w-full px-3 py-2 bg-[#FAF8F4] border elegant-border rounded-lg text-sm text-ink focus:outline-none focus:border-gold transition">
+                                <option value="روايات">روايات</option>
+                                <option value="تطوير ذات">تطوير ذات</option>
+                                <option value="فلسفة وتاريخ">فلسفة وتاريخ</option>
+                                <option value="سيرة ذاتية">سيرة ذاتية</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold mb-1.5 text-ink">التقييم (من 5)</label>
+                            <input type="number" id="form-rating" step="0.5" min="1" max="5" placeholder="مثال: 4.5" class="w-full px-3 py-2 bg-[#FAF8F4] border elegant-border rounded-lg text-sm text-ink focus:outline-none focus:border-gold transition">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold mb-1.5 text-ink">رابط صورة الغلاف</label>
+                            <input type="text" id="form-image" placeholder="رابط مباشر للصورة" class="w-full px-3 py-2 bg-[#FAF8F4] border elegant-border rounded-lg text-sm text-ink focus:outline-none focus:border-gold transition">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold mb-1.5 text-ink">النبذة والتلخيص</label>
+                        <textarea id="form-summary" rows="3" placeholder="نبذة عامة سريعة ومشوقة عن الكتاب..." class="w-full px-3 py-2 bg-[#FAF8F4] border elegant-border rounded-lg text-sm text-ink focus:outline-none focus:border-gold transition"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold mb-1.5 text-ink">الدرس الأول والدروس المستفادة</label>
+                        <textarea id="form-takeaway" rows="2" placeholder="أهم درس أو فكرة استلهمتها من هذا الكتاب..." class="w-full px-3 py-2 bg-[#FAF8F4] border elegant-border rounded-lg text-sm text-ink focus:outline-none focus:border-gold transition"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold mb-1.5 text-ink">اقتباس أعجبك</label>
+                        <input type="text" id="form-quote" placeholder="اقتباس يلامس قلبك وقلمك من بين صفحات العمل..." class="w-full px-3 py-2 bg-[#FAF8F4] border elegant-border rounded-lg text-sm text-ink focus:outline-none focus:border-gold transition">
+                    </div>
+                    <div class="flex gap-2">
+                        <button onclick="previewReview()" class="flex-1 py-2.5 bg-gold text-paper rounded-lg text-xs font-bold hover:bg-ink hover:text-paper transition duration-300">أضف للمعاينة الحالية للموقع</button>
+                        <button onclick="generateMarkdown()" class="flex-1 py-2.5 bg-ink text-paper rounded-lg text-xs font-bold hover:bg-gold hover:text-ink transition duration-300">توليد كود الـ Markdown</button>
+                    </div>
+                </div>
+
+                <!-- مخرج الـ Markdown الجاهز للنشر والمستودع -->
+                <div class="flex flex-col h-full justify-between">
+                    <div>
+                        <label class="block text-xs font-bold mb-1.5 text-ink">الناتج البرمجي لملف الـ Markdown الجاهز للنشر:</label>
+                        <div class="bg-[#1E293B] text-[#34D399] rounded-lg p-4 font-mono text-xs overflow-auto h-96 border elegant-border relative" dir="ltr">
+                            <button onclick="copyMarkdown()" class="absolute top-2 right-2 bg-slate-700 hover:bg-slate-600 text-white py-1 px-2 rounded text-[10px] transition">نسخ الكود</button>
+                            <pre id="markdown-output" class="whitespace-pre-wrap">---
+layout: post
+title: "مثال لعنوان مراجعة"
+author: "اسم الكاتب"
+category: "روايات"
+rating: 4.5
+image: "image_url"
+---
+
+# نبذة عن الكتاب
+سيتم توليد كود الـ Markdown المنسق والكامل لتضعه بملفك الخاص فور تعبئة الحقول والضغط على زر التوليد...</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. الدليل التطبيقي المتكامل للإطلاق السريع ومفهوم GitHub Pages -->
+    <section class="bg-[#F5F1E9] border-t elegant-border py-12" id="guide">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-10">
+                <span class="text-gold font-serif text-lg italic">ابدأ النشر الآن مجانًا</span>
+                <h2 class="font-serif text-3xl font-bold text-ink">كيف ترفع مدونة "مِداد" الخاصة بك على GitHub في دقيقتين؟</h2>
+                <div class="w-16 h-0.5 bg-gold mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- الخطوة الأولى -->
+                <div class="bg-paper p-5 rounded-xl border elegant-border vintage-shadow">
+                    <div class="w-8 h-8 rounded-full bg-ink text-paper flex items-center justify-center font-bold text-sm mb-4">١</div>
+                    <h3 class="font-bold text-sm text-ink mb-2">تجهيز الملف محلياً</h3>
+                    <p class="text-xs text-ink opacity-80 leading-relaxed">
+                        احفظ هذا الملف الإلكتروني على جهازك وسمّه <code class="bg-[#FAF8F4] px-1 py-0.5 border rounded">index.html</code>. تأكد من إزالة أي امتداد آخر مثل <code class="bg-[#FAF8F4] px-1 py-0.5 border rounded">.txt</code> ليتمكن المتصفح من تشغيله.
+                    </p>
+                </div>
+
+                <!-- الخطوة الثانية -->
+                <div class="bg-paper p-5 rounded-xl border elegant-border vintage-shadow">
+                    <div class="w-8 h-8 rounded-full bg-gold text-paper flex items-center justify-center font-bold text-sm mb-4">٢</div>
+                    <h3 class="font-bold text-sm text-ink mb-2">إنشاء مستودع GitHub</h3>
+                    <p class="text-xs text-ink opacity-80 leading-relaxed">
+                        افتح حسابك في GitHub، وأنشئ مستودعًا جديدًا باسم <code class="bg-[#FAF8F4] px-1 py-0.5 border rounded">username.github.io</code> (حيث username هو اسم حسابك الشخصي في المنصة).
+                    </p>
+                </div>
+
+                <!-- الخطوة الثالثة -->
+                <div class="bg-paper p-5 rounded-xl border elegant-border vintage-shadow">
+                    <div class="w-8 h-8 rounded-full bg-ink text-paper flex items-center justify-center font-bold text-sm mb-4">٣</div>
+                    <h3 class="font-bold text-sm text-ink mb-2">الرفع والتشغيل</h3>
+                    <p class="text-xs text-ink opacity-80 leading-relaxed">
+                        ارفع ملف الـ <code class="bg-[#FAF8F4] px-1 py-0.5 border rounded">index.html</code> إلى المستودع مباشرة. مبروك! موقعك الآن ينبض بالحياة للجمهور فورًا عبر الرابط المجاني.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. قارئ المراجعة الأدبي (Modal / النافذة التفاعلية المنبثقة) -->
+    <div id="review-modal" class="fixed inset-0 z-50 bg-ink/50 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-paper border-2 border-gold rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto vintage-shadow relative">
+            
+            <!-- زر الإغلاق -->
+            <button onclick="closeModal()" class="absolute top-4 left-4 w-8 h-8 rounded-full bg-cardBg hover:bg-gold hover:text-paper text-ink flex items-center justify-center transition">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="p-8">
+                <!-- تصنيف وتاريخ -->
+                <div class="flex items-center gap-2 mb-4">
+                    <span id="modal-category" class="bg-cardBg border elegant-border px-3 py-1 rounded-full text-xs font-semibold text-gold">تصنيف</span>
+                    <span id="modal-stars" class="text-gold text-sm">⭐⭐⭐⭐⭐</span>
+                </div>
+
+                <!-- غلاف وعنوان الكتاب -->
+                <div class="flex flex-col md:flex-row gap-6 mb-8 items-start">
+                    <div class="w-full md:w-1/3 aspect-[3/4] rounded-lg overflow-hidden border elegant-border shadow-md bg-cardBg">
+                        <img id="modal-image" src="" alt="غلاف الكتاب" class="w-full h-full object-cover">
+                    </div>
+                    <div class="w-full md:w-2/3">
+                        <h2 id="modal-title" class="font-serif text-3xl font-bold text-ink mb-2 leading-snug">عنوان الكتاب</h2>
+                        <p class="text-xs text-gold mb-4">الكاتب والمؤلف: <span id="modal-author" class="font-bold text-ink">مؤلف</span></p>
+                        
+                        <!-- نبذة سريعة ومختصرة -->
+                        <div class="bg-[#FAF8F4] border-r-4 border-gold p-4 rounded-l-lg mb-4">
+                            <h4 class="text-xs font-bold text-gold mb-1">خلفية المراجعة والتأملات</h4>
+                            <p id="modal-summary" class="text-sm text-ink opacity-95 leading-relaxed">نبذة مختصرة ومبسطة...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- التبويب الأعمق والتحليل الأدبي المستفاد -->
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="font-serif text-xl font-bold text-ink mb-2 flex items-center gap-2">
+                            <i class="fa-solid fa-gem text-gold text-sm"></i> أهم فكرة وجوهر الدرس المستفاد:
+                        </h3>
+                        <p id="modal-takeaway" class="text-sm text-ink opacity-85 leading-relaxed pl-4 border-r-2 border-cardBorder">
+                            أهم الدروس والتعلم الروحي والأخلاقي والفني المستخلص من هذا الكتاب...
+                        </p>
+                    </div>
+
+                    <!-- اقتباس أدبي مميز ومميز -->
+                    <div class="bg-cardBg border elegant-border rounded-xl p-5 text-center my-6">
+                        <i class="fa-solid fa-quote-right text-gold text-2xl mb-2 block"></i>
+                        <p id="modal-quote" class="font-serif text-lg italic text-ink leading-relaxed px-4">
+                            "الاقتباس يظهر منسقاً وبديعاً هنا ليلامس فكر القارئ ومحب الكتابة"
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex justify-end gap-2 mt-8 pt-4 border-t elegant-border">
+                    <button onclick="closeModal()" class="px-5 py-2 bg-ink text-paper rounded-lg text-xs font-bold hover:bg-gold hover:text-ink transition duration-300">إغلاق القارئ</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 7. تذييل الموقع الفخم والأدبي (Footer) -->
+    <footer class="bg-ink text-paper border-t elegant-border py-8 mt-auto">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div>
+                <span class="font-serif text-2xl font-bold text-paper">مِداد</span>
+                <p class="text-xs text-gold mt-1">تأملات أدبية ومراجعات كتب بروح تقنية هادئة © ٢٠٢٦</p>
+            </div>
+            <div class="flex gap-4 text-xs font-semibold text-paper/80">
+                <a href="#reviews" class="hover:text-gold transition">المراجعات</a>
+                <a href="#about" class="hover:text-gold transition">من أنا؟</a>
+                <a href="#writer-panel" class="hover:text-gold transition">لوحة الكاتب</a>
+            </div>
+        </div>
     </footer>
 
+    <!-- 8. منطق الـ JavaScript التفاعلي للبحث والتصفية والنشر -->
+    <script>
+        const initialReviews = [
+            {
+                id: 1,
+                title: "العادات الذرية (Atomic Habits)",
+                author: "جيمس كلير",
+                category: "تطوير ذات",
+                rating: 5,
+                image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=80",
+                summary: "كتاب يعرض أثر التغييرات الصغيرة في إحداث نتائج مذهلة بمرور الوقت. يتجاوز جيمس كلير فكرة الإرادة الفولاذية ليركز على بناء الأنظمة والهويات الثابتة.",
+                takeaway: "الأنظمة تتفوق على الأهداف بوضوح؛ التركيز على أن تكون قارئًا بنسبة 1% يوميًا، أفضل من التخطيط المفرط لقراءة 50 كتابًا بلا منهجية حقيقية.",
+                quote: "أنت لا ترتقي لمستوى أهدافك، بل تسقط لمستوى أنظمتك المعمول بها."
+            },
+            {
+                id: 2,
+                title: "رجال في الشمس",
+                author: "غسان كنفاني",
+                category: "روايات",
+                rating: 5,
+                image: "https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?auto=format&fit=crop&w=600&q=80",
+                summary: "رواية رمزية ناطقة تجسد لجوء الفلسطينيين ومأساتهم الوجودية، تبسط مأساة ثلاثة رجال يقررون السفر في خزان حديدي مغلق تحت وطأة شمس الصحراء الحارقة.",
+                takeaway: "الصرخة التي لم تُطلق هي جوهر المأساة؛ عدم الصراخ داخل الخزان كان هو الاستسلام التام، وهو المقولة الخالدة لغسان كنفاني في أدبه المقاوم.",
+                quote: "لماذا لم تدقوا جدران الخزان؟ لماذا لم تقولوا؟ لماذا؟"
+            },
+            {
+                id: 3,
+                title: "مقدمة ابن خلدون",
+                author: "ابن خلدون",
+                category: "فلسفة وتاريخ",
+                rating: 4.8,
+                image: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=600&q=80",
+                summary: "العمل الفلسفي التأسيسي الخالد لـ 'علم العمران البشري'. يحلل نشأة الحضارات والدول، ويوضح العوامل الاقتصادية والاجتماعية والقبلية المتحكمة بحركتها التاريخية.",
+                takeaway: "العمران والعدالة هما ركيزة بقاء المجتمعات؛ الظلم مؤذن بخراب العمران والتنافر والترف الزائد يحمل بذور النهاية الحتمية لأية حضارة ودولة.",
+                quote: "إن التاريخ في باطنه نظر وتحقيق، وتعليل للكائنات ومبادئها دقيق."
+            },
+            {
+                id: 4,
+                title: "الأيام",
+                author: "طه حسين",
+                category: "سيرة ذاتية",
+                rating: 4.5,
+                image: "https://images.unsplash.com/photo-1474932430478-367dbb6832c1?auto=format&fit=crop&w=600&q=80",
+                summary: "سيرة ذاتية عذبة ومؤلمة تروي عوالم الطفولة لعميد الأدب العربي طه حسين، منذ فقده للبصر في ريف مصر وحي الأزهريين بالقاهرة ونبوغه الفريد.",
+                takeaway: "البصيرة والعقل هما القائدان الحقيقيان للحياة والتعلم؛ التغلب على الجهل وعتمة العين بالصبر ومواصلة الاستماع والتعلم والمناظرة الفلسفية.",
+                quote: "إن العلم يا بني بحر لا ساحل له، ولن تبلغ منه شيئًا إلا بالصبر والمثابرة."
+            }
+        ];
+
+        let reviews = [...initialReviews];
+        let currentCategory = 'الكل';
+
+        function showToast(message, type = 'success') {
+            let container = document.getElementById('toast-container');
+            if (!container) {
+                container = document.createElement('div');
+                container.id = 'toast-container';
+                container.className = 'fixed bottom-5 left-5 z-50 flex flex-col gap-3 max-w-sm w-full px-4';
+                document.body.appendChild(container);
+            }
+
+            const toast = document.createElement('div');
+            toast.className = `p-4 rounded-xl shadow-lg border text-sm font-sans flex items-center gap-3 transition-all duration-300 transform translate-y-2 opacity-0 ${
+                type === 'success' 
+                ? 'bg-paper border-gold text-ink' 
+                : 'bg-red-50 border-red-300 text-red-800'
+            }`;
+
+            const icon = type === 'success' 
+                ? '<i class="fa-solid fa-circle-check text-gold text-lg"></i>' 
+                : '<i class="fa-solid fa-circle-exclamation text-red-500 text-lg"></i>';
+
+            toast.innerHTML = `
+                ${icon}
+                <div class="flex-grow text-right" dir="rtl">${message}</div>
+            `;
+
+            container.appendChild(toast);
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-2', 'opacity-0');
+            }, 10);
+
+            setTimeout(() => {
+                toast.classList.add('translate-y-2', 'opacity-0');
+                setTimeout(() => {
+                    toast.remove();
+                }, 300);
+            }, 4000);
+        }
+
+        function renderReviews() {
+            const grid = document.getElementById('reviews-grid');
+            const searchQuery = document.getElementById('search-input').value.toLowerCase();
+            
+            grid.innerHTML = '';
+            
+            const filtered = reviews.filter(review => {
+                const matchesCategory = currentCategory === 'الكل' || review.category === currentCategory;
+                const matchesSearch = review.title.toLowerCase().includes(searchQuery) || 
+                                      review.author.toLowerCase().includes(searchQuery) ||
+                                      review.summary.toLowerCase().includes(searchQuery);
+                return matchesCategory && matchesSearch;
+            });
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-span-1 md:col-span-2 text-center py-12 bg-paper border elegant-border rounded-xl">
+                        <i class="fa-solid fa-book-open text-gold text-4xl mb-3 block"></i>
+                        <p class="text-ink font-bold">لم نجد أي مراجعة توافق بحثك الحالي</p>
+                        <p class="text-xs text-ink opacity-70 mt-1">تأكد من كتابة الاسم صحيحاً أو جرب تصنيفًا آخر</p>
+                    </div>
+                `;
+                return;
+            }
+
+            filtered.forEach(review => {
+                const stars = '⭐'.repeat(Math.floor(review.rating)) + (review.rating % 1 !== 0 ? '½' : '');
+                
+                const card = document.createElement('div');
+                card.className = "bg-paper border elegant-border rounded-xl p-5 vintage-shadow flex flex-col md:flex-row gap-5 hover:-translate-y-1 transition duration-300";
+                card.innerHTML = `
+                    <div class="w-full md:w-1/3 aspect-[3/4] rounded-lg overflow-hidden border elegant-border bg-cardBg shrink-0">
+                        <img src="${review.image}" alt="${review.title}" class="w-full h-full object-cover">
+                    </div>
+                    <div class="flex flex-col justify-between flex-grow">
+                        <div>
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="bg-cardBg px-2 py-0.5 rounded text-[10px] font-bold text-gold border elegant-border">${review.category}</span>
+                                <span class="text-xs text-gold">${stars}</span>
+                            </div>
+                            <h3 class="font-serif text-xl font-bold text-ink mb-1">${review.title}</h3>
+                            <p class="text-[11px] text-gold mb-3">بقلم: ${review.author}</p>
+                            <p class="text-xs text-ink opacity-80 leading-relaxed mb-4 line-clamp-3">${review.summary}</p>
+                        </div>
+                        <button onclick="openReview(${review.id})" class="w-full py-2 bg-[#FAF8F4] border border-gold text-gold rounded-lg text-xs font-bold hover:bg-gold hover:text-paper transition duration-300 text-center">اقرأ المراجعة والتأملات</button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function filterCategory(category) {
+            currentCategory = category;
+            
+            const tags = ['الكل', 'روايات', 'تطوير ذات', 'فلسفة وتاريخ', 'سيرة ذاتية'];
+            tags.forEach(tag => {
+                const btn = document.getElementById(`tag-${tag}`);
+                if (tag === category) {
+                    btn.className = "px-4 py-2 text-xs font-bold rounded-lg transition-all border border-gold bg-gold text-paper";
+                } else {
+                    btn.className = "px-4 py-2 text-xs font-bold rounded-lg transition-all border elegant-border bg-paper text-ink hover:border-gold hover:text-gold";
+                }
+            });
+            
+            renderReviews();
+        }
+
+        function openReview(id) {
+            const review = reviews.find(r => r.id === id);
+            if (!review) return;
+
+            document.getElementById('modal-title').textContent = review.title;
+            document.getElementById('modal-author').textContent = review.author;
+            document.getElementById('modal-category').textContent = review.category;
+            document.getElementById('modal-summary').textContent = review.summary;
+            document.getElementById('modal-takeaway').textContent = review.takeaway;
+            document.getElementById('modal-quote').textContent = `"${review.quote}"`;
+            document.getElementById('modal-image').src = review.image;
+            
+            const starsSpan = document.getElementById('modal-stars');
+            starsSpan.textContent = '⭐'.repeat(Math.floor(review.rating)) + (review.rating % 1 !== 0 ? '½' : '');
+
+            document.getElementById('review-modal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('review-modal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        function generateMarkdown() {
+            const title = document.getElementById('form-title').value || "عنوان مراجعة كتاب";
+            const author = document.getElementById('form-author').value || "اسم المؤلف";
+            const category = document.getElementById('form-category').value;
+            const rating = document.getElementById('form-rating').value || "4.5";
+            const image = document.getElementById('form-image').value || "رابط_صورة_الغلاف_هنا";
+            const summary = document.getElementById('form-summary').value || "اكتب نبذة تلخيصية هنا...";
+            const takeaway = document.getElementById('form-takeaway').value || "اكتب الفكرة الجوهرية هنا...";
+            const quote = document.getElementById('form-quote').value || "اقتباس مميز من الكتاب";
+
+            const markdown = `---
+layout: post
+title: "${title}"
+author: "${author}"
+category: "${category}"
+rating: ${rating}
+image: "${image}"
+---
+
+# نبذة عن الكتاب
+${summary}
+
+# أهم الفوائد والدروس المستفادة
+${takeaway}
+
+# اقتباس من صفحات الكتاب
+> "${quote}"
+`;
+            document.getElementById('markdown-output').textContent = markdown;
+        }
+
+        function copyMarkdown() {
+            const text = document.getElementById('markdown-output').textContent;
+            const tempTextArea = document.createElement('textarea');
+            tempTextArea.value = text;
+            tempTextArea.style.position = 'fixed';
+            tempTextArea.style.opacity = '0';
+            tempTextArea.style.left = '-9999px';
+            document.body.appendChild(tempTextArea);
+            tempTextArea.select();
+            
+            try {
+                const successful = document.execCommand('copy');
+                if (successful) {
+                    showToast('تم نسخ كود الـ Markdown بنجاح! يمكنك الآن لصقه في ملف المقالات بمستودعك بلاحقة .md', 'success');
+                } else {
+                    showToast('فشل نسخ الكود تلقائياً. يرجى نسخه وتحديده يدوياً.', 'error');
+                }
+            } catch (err) {
+                showToast('حدث خطأ غير متوقع أثناء محاولة نسخ الكود.', 'error');
+            }
+            
+            document.body.removeChild(tempTextArea);
+        }
+
+        function previewReview() {
+            const title = document.getElementById('form-title').value;
+            const author = document.getElementById('form-author').value;
+            const category = document.getElementById('form-category').value;
+            const rating = parseFloat(document.getElementById('form-rating').value) || 4.5;
+            const image = document.getElementById('form-image').value || "https://images.unsplash.com/photo-1474932430478-367dbb6832c1?auto=format&fit=crop&w=600&q=80";
+            const summary = document.getElementById('form-summary').value;
+            const takeaway = document.getElementById('form-takeaway').value;
+            const quote = document.getElementById('form-quote').value;
+
+            if (!title || !author || !summary) {
+                showToast('يرجى تعبئة الحقول الأساسية على الأقل: (عنوان الكتاب، الكاتب، والنبذة) لتجربة المعاينة الفورية.', 'error');
+                return;
+            }
+
+            const newReview = {
+                id: Date.now(),
+                title,
+                author,
+                category,
+                rating,
+                image,
+                summary,
+                takeaway: takeaway || "سيتم كتابة الدروس المستفادة لاحقاً...",
+                quote: quote || "سيتم إضافة اقتباس مميز لاحقاً..."
+            };
+
+            reviews.unshift(newReview);
+            renderReviews();
+            
+            document.getElementById('form-title').value = '';
+            document.getElementById('form-author').value = '';
+            document.getElementById('form-summary').value = '';
+            document.getElementById('form-takeaway').value = '';
+            document.getElementById('form-quote').value = '';
+            
+            showToast('رائع جداً! تم إضافة المقال مؤقتاً في واجهة المعاينة الحالية. يمكنك الآن مشاهدة الكارت الخاص بك والضغط عليه لقراءته بالكامل!', 'success');
+        }
+
+        document.getElementById('search-input').addEventListener('input', renderReviews);
+        window.onload = renderReviews;
+    </script>
 </body>
 </html>
